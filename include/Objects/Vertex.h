@@ -60,6 +60,18 @@ public:
      */
     bool IsAvailable() const;
 
+    /**
+     *  @brief Set the vertex score 
+     */
+    void SetScore(float &vertexScore);
+
+    /**
+     *  @brief Get the vertex score 
+     * 
+     *  @return the vertex score 
+     */
+    float GetScore() const;
+
 protected:
     /**
      *  @brief  Constructor
@@ -92,6 +104,7 @@ protected:
     VertexLabel             m_vertexLabel;              ///< The vertex label (interaction, start, end, etc.)
     VertexType              m_vertexType;               ///< The vertex type (3d, view u, v, w, etc.)
     bool                    m_isAvailable;              ///< Whether the track is available to be added to a particle flow object
+    float                   m_score;                    ///< The vertex score
 
     friend class VertexManager;
     friend class AlgorithmObjectManager<Vertex>;
@@ -139,6 +152,22 @@ inline void Vertex::SetAvailability(bool isAvailable)
 {
     m_isAvailable = isAvailable;
 }
+
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+inline void Vertex::SetScore(float &vertexScore)
+{
+    m_score = vertexScore;
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+inline float Vertex::GetScore()
+{
+    return m_score;
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------------
 
 } // namespace pandora
 
